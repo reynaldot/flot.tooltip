@@ -18,6 +18,7 @@
                 y: 20
             },
             defaultTheme: true,
+            fixed: false,
 
             // callbacks
             onHover: function(flotItem, $tooltipEl) {}
@@ -72,12 +73,23 @@
 			var $tip = that.getDomElement();
             if (item) {
                 var tipText;
+                var x;
+                var y;
+
+                if (that.tooltipOptions.fixed === true) {
+                  x = that.tipPosition.x = item.pageX;
+                  y = that.tipPosition.y = item.pageY;
+                } else {
+                  x = pos.pageX;
+                  y = pos.pageY;
+                }
 
                 // convert tooltip content template to real tipText
                 tipText = that.stringFormat(that.tooltipOptions.content, item);
 
                 $tip.html( tipText );
-                that.updateTooltipPosition({ x: pos.pageX, y: pos.pageY });
+                // Disabled tooltip safe positioning
+                // that.updateTooltipPosition({ x: x, y: y });
                 $tip.css({
                         left: that.tipPosition.x + that.tooltipOptions.shifts.x,
                         top: that.tipPosition.y + that.tooltipOptions.shifts.y

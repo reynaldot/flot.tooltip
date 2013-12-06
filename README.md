@@ -37,6 +37,7 @@ In comments there are default values
         },
         defaultTheme:   boolean                 //true
         onHover:        function(flotItem, $tooltipEl)
+        fixed:          boolean                 //false
     }
 
 
@@ -50,6 +51,7 @@ In comments there are default values
 -   `shifts` : shift tooltip position regarding mouse pointer for `x` and `y`, negative values are ok
 -   `defaultTheme` : plugin have default theme build-in but here you can switch it off and adjust look of tip styling `#flotTip` in your CSS
 -   `onHover` : callback that allows you i.e. change color of the border of the tooltip according to the currently hovered serie
+-   `fixed` : set to true for fixing the position of tooltip to that of the hovered item.
 
 Depreciated in v0.5:
 -   `dateFormat`
